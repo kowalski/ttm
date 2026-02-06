@@ -1,0 +1,5 @@
+# PDF reports
+raporty/*.pdf
+
+# Markdown reports (contain client data)
+markdown/*.md
