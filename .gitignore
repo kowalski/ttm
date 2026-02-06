@@ -3,3 +3,11 @@ raporty/*.pdf
 
 # Markdown reports (contain client data)
 markdown/*.md
+
+# Credentials
+.env
+
+# Scraper state and output
+auth_state/
+sesje/
+debug/
