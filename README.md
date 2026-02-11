@@ -16,6 +16,8 @@ pip install pymupdf
 ```
 TTM/
 ├── fill_ttm_pdf.py        # Skrypt generujący PDF z markdown
+├── extract_ttm_pdf.py     # Skrypt wyciągający dane z PDF do markdown
+├── new_ttm_report.py      # Skrypt tworzący nowy raport z szablonu
 ├── template/
 │   ├── TTM.pdf            # Szablon formularza PDF
 │   └── TTM_template.md    # Szablon markdown do nowych raportów
@@ -27,11 +29,11 @@ TTM/
 
 ### 1. Utwórz nowy raport
 
-Skopiuj szablon markdown i nadaj mu nazwę z imieniem klienta:
-
 ```bash
-cp template/TTM_template.md markdown/TTM_Imie.md
+python3 new_ttm_report.py
 ```
+
+Skrypt zapyta o imię klienta i datę sesji (domyślnie dzisiejsza). Utworzy plik `markdown/TTM_{data}_{imię}.md` z uzupełnionymi polami imienia i daty.
 
 ### 2. Wypełnij raport
 
@@ -73,3 +75,13 @@ Aby wyświetlić listę wszystkich pól w szablonie PDF:
 ```bash
 python3 fill_ttm_pdf.py --list-fields
 ```
+
+### 5. Wyciągnij dane z PDF do markdown
+
+Aby odtworzyć plik markdown z wypełnionego raportu PDF:
+
+```bash
+python3 extract_ttm_pdf.py raporty/TTM_2025-08-20_Karolina.pdf
+```
+
+Plik zostanie zapisany w `markdown/TTM_2025-08-20_Karolina.md`.
